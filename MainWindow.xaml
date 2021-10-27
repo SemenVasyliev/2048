@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2048.DCT"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+       Title="2048 Game" Height="430" Width="600" KeyDown="Mgrid_KeyDown">
+  <Grid x:Name="mgrid" Background="BlanchedAlmond">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="2*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+      <RowDefinition/>
+      <RowDefinition/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Button x:Name="New" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Center" Width="120" FontSize="20" Foreground="White" Click="New_Click">
+      <Button.Template>
+        <ControlTemplate TargetType="Button">
+          <Border x:Name="NewBorder" BorderThickness="2" Background="Black">
+            <ContentPresenter Content="New game" VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver"  Value="True">
+              <Setter TargetName="NewBorder" Property="Background" Value="#FFBF0303"></Setter>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Button.Template>
+    </Button>
+    <Label Content="Score" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" Height="44" VerticalAlignment="Bottom" Width="99" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    <TextBlock x:Name="Score" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Text="0" VerticalAlignment="Top"  FontSize="35"/>
+  </Grid>
 </Window>
+

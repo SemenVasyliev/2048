@@ -20,6 +20,9 @@ namespace _2048.DCT
     /// </summary>
     public partial class MainWindow : Window
     {
+        int score;
+        Block[,] blocks = new Block[4, 4];
+        
         public MainWindow()
         {
             InitializeComponent();
